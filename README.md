@@ -121,4 +121,4 @@ Team Name:
 - Asim Saru: Prompt Engineering 
 
 
-frontend github link :- https://github.com/tusharrayamajhi/hackerAIfrontend.git
+frontend github link :- https://github.com/TheGoodSpirit/Joopa-Digital/tree/main/HimalAi
