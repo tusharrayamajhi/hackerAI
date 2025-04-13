@@ -39,7 +39,8 @@ export const checkprompt = ChatPromptTemplate.fromTemplate(`
                     Customer: “I want 1 black T-shirt sent to Lalitpur. Please send the payment link.”
                     Assistant:
                     "Great! Generating your payment link now!"  
-                    ➡️ Call: \`sendPaymentLinkToCustomer("black T-shirt", "1", "Lalitpur")\`
+                    if you want to generate a payment you most past the product id of the t-shirt that customer select match the name with id and send to payment 
+                    ➡️ Call: \`sendPaymentLinkToCustomer("tshirtName", "1", "Lalitpur")\`
                     
                     ## Input Variables:
                     
@@ -116,6 +117,7 @@ export const checkprompt = ChatPromptTemplate.fromTemplate(`
                       
                       🛍️ Recommend items from {product} using quick, simple descriptions.
                       - Always mention available **colors** and **sizes**
+                      - give price in product are in NRP (Nepali Rupees)
                       - Gently encourage purchase with urgency when relevant (e.g. "Limited stock!" or "Only a few left!")
                       - Ask: **“Do you want to add anything else?”** before moving to payment
                       

@@ -406,7 +406,7 @@ export class HelperFunction {
 
 
     generatePaymentLink() {
-        return tool(async (sender: { senderId: string, product: [{ productId: string, quantity: string, size: string }], shippingAddress: string, email: string }) => {
+        return tool(async (sender: { senderId: string, product: [{ productName: string, quantity: string, size: string }], shippingAddress: string, email: string }) => {
             console.log(sender)
             try {
 
@@ -420,7 +420,7 @@ export class HelperFunction {
                 let orderItems:any = [];
 
                 for (const pro of sender.product) {
-                    const product = await this.productRepo.findOneBy({ id: pro.productId });
+                    const product = await this.productRepo.findOneBy({ productName: pro.productName });
                     if (!product) {
                         console.log("product not found");
                         return JSON.stringify({ message: "product not found" });
@@ -510,7 +510,7 @@ export class HelperFunction {
             description: "if customer want to pay through esewa use this tool to generate a payment link and send to customer",
             schema: z.object({
                 product: z.array(z.object({
-                    productId: z.string().describe("product id"),
+                    productName: z.string().describe("name of the tshirt"),
                     quantity: z.string().describe("quantity"),
                     size: z.string().describe("size of the t-shirt")
 

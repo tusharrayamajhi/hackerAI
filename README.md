@@ -1,11 +1,11 @@
 ![system_architecture drawio](https://github.com/user-attachments/assets/61730f3e-cefa-4a44-826f-61effbb58054)# MiddelMan
-🧠🛒 AI Sales Agent for T-Shirt Selling via Messenger
+🧠🛒 AI Sales Agent for T-Shirt Selling via Message (Natural Language Processing)
 
 This is an AI-powered chatbot that helps users buy t-shirts directly through Facebook Messenger. It uses Gemini LLM with custom prompt engineering to understand user messages and guide them through the shopping process—from browsing products to placing an order.
 
 🚀 Features
 
-Messenger Chatbot – Talk to users via Facebook Messenger.
+Messenger  – Talk to users via Facebook Messenger.
 
 Smart AI – Uses Gemini LLM + prompt engineering to understand and reply to user queries.
 
@@ -13,10 +13,7 @@ Product Catalog – Displays t-shirt info like images, size, price, and descript
 
 Interactive Shopping – Users can select size, color, and confirm orders within the chat.
 
-Smooth Checkout – Supports payment confirmation (e.g., Stripe).
-
-Great User Experience – Friendly, fast, and fun shopping experience on Messenger.
-System Architecture
+Smooth Checkout – Supports payment confirmation (e.g., esewa).
 
 
 
@@ -64,40 +61,39 @@ MySQL	                   Stores product and order data
 
 🛠 Instructions to run the app
 1. Clone the repo 
-git clone https://github.com/your-username/ai-sales-agent.git
-cd ai-sales-agent
+git clone https://github.com/tusharrayamajhi/hackerAI
+cd HackerAi
 
 2. Install dependencies
 npm install
 
+setup nagrok and public the localhost url to internet
+
 3. Configure Facebook Messenger API
-- Create a Facebook App from the Meta Developer Portal.
+- Create a access token for your Facebook App from the Meta Developer Portal.
 - Set up the Messenger platform.
 - Generate and use your Page Access Token.
 - Set your webhook using ngrok or deployed URL.
+- use verify token to verify the webhook.
+- subscribe for the message events.
+
+
 
 4. Set environment variables Create a .env file and add:
     PAGE_ACCESS_TOKEN=your_fb_page_token
     VERIFY_TOKEN=your_verify_token
     GEMINI_API_KEY=your_gemini_api_key
-    MYSQL_URL=your_mysql_connection_string
+    mysqlDatabaseSetup
+    email id and pass key for sending email
+    esewa redirect url
+
+    
 
 5. Run the project
-npm run dev
+npm run start:dev
 
 
-📁 Project Structure
-bash
-Copy
-Edit
-ai-sales-agent/
-├── pages/            # Next.js pages (UI routes)
-├── components/       # Reusable React components
-├── utils/            # Langchain + LLM logic
-├── public/           # Static assets (images)
-├── services/         # Messenger, Gemini, DB integration
-├── .env              # Environment variables
-└── README.md         # Project overview
+
 
 
 🔮 Future Plans
@@ -112,6 +108,9 @@ ai-sales-agent/
 - Facebook Messenger Platform
 - Meta for Developers
 - Next.js
+- MySQL
+- Gemini LLM
+- NestJS
 - Langchain
 - Gemini LLM by Google
 - Prompt Engineering Community

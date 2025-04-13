@@ -81,7 +81,7 @@ export class SalesEvent{
                         
                             const outputparser3 = StructuredOutputParser.fromZodSchema(z.object({
                                 product:z.array(z.object({
-                                    productId:z.string().describe("Product id of the tshirt that customer select to order"),
+                                    productName:z.string().describe("name of the tshirt that customer select to order"),
                                     quantity:z.string().describe("no of order quantity from customer"),
                                     size:z.string().describe("size that customer want to buy")
                                 })),
