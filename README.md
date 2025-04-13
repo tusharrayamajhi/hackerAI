@@ -1,99 +1,123 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+![system_architecture drawio](https://github.com/user-attachments/assets/61730f3e-cefa-4a44-826f-61effbb58054)# MiddelMan
+🧠🛒 AI Sales Agent for T-Shirt Selling via Messenger
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is an AI-powered chatbot that helps users buy t-shirts directly through Facebook Messenger. It uses Gemini LLM with custom prompt engineering to understand user messages and guide them through the shopping process—from browsing products to placing an order.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+🚀 Features
 
-## Description
+Messenger Chatbot – Talk to users via Facebook Messenger.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Smart AI – Uses Gemini LLM + prompt engineering to understand and reply to user queries.
 
-## Project setup
+Product Catalog – Displays t-shirt info like images, size, price, and description.
 
-```bash
-$ npm install
-```
+Interactive Shopping – Users can select size, color, and confirm orders within the chat.
 
-## Compile and run the project
+Smooth Checkout – Supports payment confirmation (e.g., Stripe).
 
-```bash
-# development
-$ npm run start
+Great User Experience – Friendly, fast, and fun shopping experience on Messenger.
+System Architecture
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
 
-## Run tests
+🛠 User Interaction Flow
 
-```bash
-# unit tests
-$ npm run test
+1. Start Conversation:
+User sends a message like: “Hi, I want to buy a t-shirt.”
 
-# e2e tests
-$ npm run test:e2e
+2. AI Shows Options:
+AI: Sure! Here are the t-shirts available:
+- Classic White T-shirt – $20
+- Graphic Black T-shirt – $25
 
-# test coverage
-$ npm run test:cov
-```
+3. User Picks Product:
+User: I want the Black T-shirt.
+AI: What size would you like? S, M, L, XL.
 
-## Deployment
+4. Confirm & Pay:
+User: M
+AI: Great! Your total is $25. Please proceed to payment.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+5. Order Placed
+AI: Thank you! Your order is confirmed and will be shipped soon. 
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+🧰 Tech Stack
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Component	                     Description
+Messenger API            	Facebook Messenger for chatbot UI
+Next.js                 	Frontend framework (responsive UI)
+JavaScript	                Main language (frontend & backend)
+Gemini LLM	                AI brain for conversations
+Langchain	                Bridges LLM with logic
+MySQL	                   Stores product and order data
 
-## Resources
 
-Check out a few resources that may come in handy when working with NestJS:
+⚙️ Requirements
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- JavaScript
+- Next.js
+- MySQL
+- Facebook Messenger API
+- Gemini LLM access
+- Langchain
 
-## Support
+🛠 Instructions to run the app
+1. Clone the repo 
+git clone https://github.com/your-username/ai-sales-agent.git
+cd ai-sales-agent
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. Install dependencies
+npm install
 
-## Stay in touch
+3. Configure Facebook Messenger API
+- Create a Facebook App from the Meta Developer Portal.
+- Set up the Messenger platform.
+- Generate and use your Page Access Token.
+- Set your webhook using ngrok or deployed URL.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+4. Set environment variables Create a .env file and add:
+    PAGE_ACCESS_TOKEN=your_fb_page_token
+    VERIFY_TOKEN=your_verify_token
+    GEMINI_API_KEY=your_gemini_api_key
+    MYSQL_URL=your_mysql_connection_string
 
-## License
+5. Run the project
+npm run dev
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+📁 Project Structure
+bash
+Copy
+Edit
+ai-sales-agent/
+├── pages/            # Next.js pages (UI routes)
+├── components/       # Reusable React components
+├── utils/            # Langchain + LLM logic
+├── public/           # Static assets (images)
+├── services/         # Messenger, Gemini, DB integration
+├── .env              # Environment variables
+└── README.md         # Project overview
+
+
+🔮 Future Plans
+
+1. Add more payment options (e.g., PayPal)
+2. Multi-language chatbot support
+3. Expand to Instagram, Telegram, and more
+4. Improve AI responses with better prompts
+5. user can simply upload image and do inquery
+
+🙏 Acknowledgements
+- Facebook Messenger Platform
+- Meta for Developers
+- Next.js
+- Langchain
+- Gemini LLM by Google
+- Prompt Engineering Community
+
+Team Name:
+- Tushar Rayamajhi:BackEnd/AI 
+- Manish Ghimire:UI
+- Asim Saru: Prompt Engineering 
+
