@@ -9,15 +9,26 @@ export class Payment extends BaseEntities{
     @JoinColumn()
     order: Orders;
 
+    @Column()
+    transaction_uuid:string
+
     @Column({ type: "decimal", precision: 10, scale: 2 })
-    amount: number;
+    total_amount: number;
 
     @Column({nullable:false})
-    transaction_id:string
+    transaction_code:string
 
-    @Column({ type: "enum", enum: ["pending", "completed", "failed"], default: "pending" })
+    @Column({default: "failed" })
     status: string;
 
     @Column()
     payment_method: string;
+
+    @Column()
+    signature:string
+
+    @Column()
+    email:string
 }
+
+

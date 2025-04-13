@@ -5,7 +5,6 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { customerService } from "./customer.services";
-import { StructuredToolInterface } from "@langchain/core/tools";
 
 
 @Injectable()

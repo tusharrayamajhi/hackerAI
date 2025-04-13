@@ -10,13 +10,16 @@ export class OrderItem extends BaseEntities {
     @ManyToOne(() => Orders, (order) => order.id)
     order: Orders;
 
-    @ManyToOne(() => Product, (product) => product.id)
+    @ManyToOne(() => Product, (product) => product.id,{eager:true})
     product: Product;
 
     @Column()
-    quantity: number;
+    quantity: string;
 
     @Column("decimal")
-    price: number; 
+    price: string; 
+
+    @Column()
+    size:string
 
 }

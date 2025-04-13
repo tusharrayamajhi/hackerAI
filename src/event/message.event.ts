@@ -63,7 +63,7 @@ export class MessageEventListener{
             CustomerMessageId:payload.mid,
             customer:customer,
             CustomerMessage:text,
-            attachments:attachmentsData,
+            // attachments:attachmentsData,
             // reply_to:replyTo
         })
         await this.customerMessageRepo.save(message);

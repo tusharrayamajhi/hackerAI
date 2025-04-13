@@ -1,5 +1,4 @@
-import { CartItem } from './CartItem.entities';
-import { Column, Entity, OneToMany } from "typeorm";
+import { Column, Entity } from "typeorm";
 import { BaseEntities } from "./BaseEntities.entities";
 
 export enum Size {
@@ -14,14 +13,14 @@ export enum Size {
 @Entity()
 export class Product extends BaseEntities {
 
-  @Column({ nullable: false })
+  @Column({ nullable: false,unique:true })
   productName: string;
 
   @Column({ type: "text", nullable: false })
   description: string;
 
-  @Column({ type: "int", unsigned: true, nullable: false })
-  price: number;
+  @Column({ type: "varchar", unsigned: false, nullable: false,default:'0' })
+  price: string;
 
   @Column({ type: "int", unsigned: true, nullable: false })
   stock: number;
@@ -32,12 +31,9 @@ export class Product extends BaseEntities {
   @Column({ type: "varchar", length: 255, nullable: true })  
   videoLink: string;
 
-  @Column({type: "enum",enum: Size,nullable: false})
-  size: Size;
+  @Column({type: "simple-array"})
+  size: Size[];
 
   @Column()
   color:string;
-
-  @OneToMany(() => CartItem, (cartItem) => cartItem.product)
-  CartItem: CartItem[];
 }

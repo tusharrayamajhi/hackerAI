@@ -1,6 +1,8 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, OneToOne } from "typeorm";
 import { BaseEntities } from "./BaseEntities.entities";
 import { Customer } from "./Customer.entities";
+import { OrderItem } from "./OrderItem.entities";
+import { Payment } from "./Payment.entities";
 
 @Entity()
 export class Orders extends BaseEntities{
@@ -11,7 +13,13 @@ export class Orders extends BaseEntities{
     @Column({ type: "decimal", precision: 10, scale: 2 })
     total_amount: number;
 
-    @Column({ type: "enum", enum: ["pending", "processing", "shipped", "delivered", "canceled"], default: "pending" })
+    @OneToOne(() => Payment, (payment) => payment.order)
+    payment: Payment;
+
+    @Column()
     status: string
+
+    @OneToMany(()=>OrderItem,(item)=>item.order,{cascade:true,eager:true})
+    orderItem:OrderItem[]
 
 }

@@ -1,8 +1,7 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { BaseEntities } from "./BaseEntities.entities";
 import { Payload } from "./payload.entities";
-import { CustomerMessages } from "./CustomerMessages.entities";
-import { AiMessages } from "./AiMessages.entities";
+
 
 export enum AttachmentType {
     AUDIO = "audio",
@@ -25,10 +24,9 @@ export class Attachments extends BaseEntities{
     @JoinColumn()
     payload:Payload
 
-    @ManyToOne(()=>CustomerMessages,message=>message.attachments)
-    customerMessage:CustomerMessages
+    @Column({ type: "uuid", nullable: false })
+    customerId: string;
 
-    @ManyToOne(()=>AiMessages,message=>message.attachments)
-    aiMessages:AiMessages
+    
 
 }

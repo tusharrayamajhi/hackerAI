@@ -13,6 +13,9 @@ export class Customer extends BaseEntities{
     @Column()
     fullName:string
 
+    @Column()
+    email:string
+
     @OneToMany(()=>CustomerMessages,customerMessages => customerMessages.customer)
     customerMessage:CustomerMessages[]
 
@@ -21,4 +24,6 @@ export class Customer extends BaseEntities{
 
     @OneToMany(() => Orders, (order) => order.customer,{cascade:true,eager:true})
     orders: Orders[];
+
+    
 }

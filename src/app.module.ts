@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
-import { customerService } from './services/customer.services';
 import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Customer } from './entities/Customer.entities';
@@ -16,11 +15,15 @@ import { ModelService } from './services/model.services';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { Attachments } from './entities/attachment.entities';
 import { Payload } from './entities/payload.entities';
-import { MessageEventListener } from './event/message.event';
-import { LLMEventListener } from './event/llm.event';
 import { HelperFunction } from './helperFunction/message.helper';
-import { CartItem } from './entities/CartItem.entities';
-import { LMEvent } from './event/lm.event';
+import { SalesEvent } from './event/SalesEvent';
+import { customerService } from './services/customer.services';
+import { MessageEventListener } from './event/message.event';
+import { SendEmailListener } from './event/email.event';
+import { SendMessageListener } from './event/sendSuccessMessage.event';
+import { EsewaPaymentHandler } from './event/savePayment.event';
+import { MailService } from './services/mailService';
+
 
 @Module({
   imports: [
@@ -45,7 +48,6 @@ import { LMEvent } from './event/lm.event';
           Shipping,
           Attachments,
           Payload,
-          CartItem
         ],
         synchronize:true
       }),
@@ -63,11 +65,10 @@ import { LMEvent } from './event/lm.event';
       OrderItem,
       Orders,
       Payload,
-      CartItem
     ])
   ],
   controllers: [AppController],
-  providers: [customerService,ModelService,MessageEventListener,LLMEventListener,HelperFunction,LMEvent],
+  providers: [ModelService,SalesEvent,HelperFunction,customerService,MessageEventListener,SendEmailListener,SendMessageListener,EsewaPaymentHandler,MailService],
 })
 export class AppModule {}
 
